@@ -1,0 +1,40 @@
+button,
+.btn {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-color: $buttonColor;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-weight: $base-bold-font-weight;
+  line-height: 42px;
+  height: 42px;
+  outline: none;
+  padding: 0 $space-2x;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &--has-icon {
+    padding-left: $space-3x;
+  }
+
+  .icon {
+    position: absolute;
+    line-height: 1;
+    left: $space;
+    top: 50%;
+    margin-top: -10px;
+  }
+
+  svg {
+    fill: $white;
+    width: 20px; height: 20px;
+  }
+
+}

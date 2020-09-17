@@ -1,0 +1,5 @@
+{% for account in accounts %}
+  {% if account.link %}
+    <a href="{{ account.link }}" class="social-icons__link">{% include 'atoms/icon.twig' with { 'icon': account.icon } %}</a>
+  {% endif %}
+{% endfor %}

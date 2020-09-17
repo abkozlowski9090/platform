@@ -1,0 +1,36 @@
+{% if latest_posts|length %}
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="latest-news {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container">
+    <div class="row">
+
+      <div class="page-grid__flex-container">
+        {% for post_info in latest_posts %}
+        {% if loop.index0 == 0 %}
+              <div class="page-grid__item page-grid__item--featured">
+                {% include "molecules/news-card.twig" with {
+                  post_info: post_info,
+                  'class_name': 'page-grid-card--square'
+                } %}
+              </div>
+              {% else %}
+              <div class="page-grid__item">
+                {% include 'molecules/news-card.twig' with {
+                  post_info: post_info,
+                } %}
+              </div>
+            {% endif %}
+          {% endfor %}
+
+
+
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% endif %}

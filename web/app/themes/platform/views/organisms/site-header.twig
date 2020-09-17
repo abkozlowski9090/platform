@@ -1,0 +1,33 @@
+{#
+include 'organisms/site-header.twig' with {
+  'title': STRING,
+  'icon': STRING,
+  'class_list': STRING,
+  'has_burger': BOOLEAN,
+  'menu' : STRING
+}
+#}
+<header class="site-header {{ (is_archive == true) ? 'nav-default' : '' }} {{ (body_class == "blog") ? 'nav-default' : '' }}" data-module="scroll">
+  <div class="container">
+    <div class="row row--reset-pad row--align-center row--flex-always">
+
+      <a href="/" class="site-header__logo">
+        {% include 'atoms/icon.twig' with { 'icon': 'platform-logo' } %}
+      </a>
+      <a href="#" class="burger-nav-button site-header__burger" data-module="burgernav"><i></i>
+        <i></i>
+        <i></i>
+      </a>
+      <div class="site-header__menu">
+        <div class="container">
+        {% include 'molecules/nav.twig' %}
+        <div class="nav-main__bottom-bar">
+          <p>  <a href=""> Twitter / </a> <a href=""> Instagram </a></p>
+          <p>  <a href="https://www.airportcity.co.uk/"> Airport City </a></p> <p> <a href="/privacy-policy"> Privacy Policy </a> </p>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</header>

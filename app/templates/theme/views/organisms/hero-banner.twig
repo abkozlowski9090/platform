@@ -1,0 +1,25 @@
+{#
+include 'organisms/hero-banner.twig' with {
+  'title': STRING,
+  'sub_title': STRING,
+  'class_list': STRING,
+  'has_link': BOOLEAN,
+  'link': {
+    'url': STRING,
+    'title': STRING,
+    'external': BOOLEAN,
+    'icon': STRING
+  }
+}
+#}
+<section class="hero-banner {{ class_list }}">
+  <div class="container">
+    <div class="row">
+      <h1>{{ title }}</h1>
+      <p>{{ sub_title }}</p>
+      {% if has_link %}
+      <a href="#">{{ link.title }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

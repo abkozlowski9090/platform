@@ -1,0 +1,9 @@
+.social-icons {
+
+  &__link {
+    color: $purple;
+    &:nth-child(1) {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{% for layout in layouts %}
+	{% if not layout.hide_section %}
+    {% include 'organisms/'~ layout.acf_fc_layout ~'.twig' with {
+      'content': layout
+    } %}
+  {% endif %}
+{% endfor %}

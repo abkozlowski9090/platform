@@ -1,0 +1,4 @@
+/*
+ * Theme Name: <%= conf.get('title') %>
+ * Author: <%= conf.get('author') %>
+*/

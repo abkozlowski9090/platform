@@ -1,0 +1,35 @@
+{% set event_date_string = "" %}
+{% set seperator = " - " %}
+{% if post.get_field('event_dates')|length > 1 %}
+  {% set seperator = " + " %}
+{% endif %}
+{% for date in post.get_field('event_dates') %}
+  {% set event_date_string = event_date_string ~ date.event_date ~ seperator %}
+{% endfor %}
+{% set event_date_string = event_date_string ~ post.event_end_date|date('d/m/y') %}
+
+<a href="{{ post_info.link }}" class="news-card {{ (class_name) ? class_name : '' }}">
+  <div class="news-card__image">
+    {% include 'atoms/picture.twig' with {
+      'alt': post_info.caption,
+      'images': {
+        'standard_img': TimberImage(post_info.thumbnail.src|resize(800, 1200)),
+        'standard_img_retina': TimberImage(post_info.thumbnail.src|resize(1200, 1600)),
+        'tablet_img': (image.sizes.medium) ? TimberImage(post_info.thumbnail.src|resize(500, 700)) : TimberImage(post_info.thumbnail.src|resize(500, 700)),
+        'mobile_img': (image.sizes.small) ? TimberImage(post_info.thumbnail.src|resize(300, 600)) : TimberImage(post_info.thumbnail.src|resize(500, 800))
+      }
+    } %}
+  </div>
+
+{% if post_info.event_date %}
+  <div class="news-card__content">
+    <p class="h2 text--bold"> {{ post_info.event_date|date('j') }} </p>
+    <p class="h4 text--bold mb-auto">{{ post_info.event_date|date('M') }}</p>
+    <p class="h3">{{ post_info.post_title }}</p>
+  </div>
+  {% else %}
+  <div class="news-card__content news-card--flex-end">
+    <p class="h3">{{ post_info.post_title }}</p>
+  </div>
+  {% endif %}
+</a>

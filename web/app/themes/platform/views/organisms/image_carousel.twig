@@ -1,0 +1,17 @@
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="image-carousel{{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.css_classes) ? ' '~content.options.section_options.css_classes : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}>
+  <div class="image-carousel__carousel" data-module="imagecarousel">
+    {% for image in content.image_carousel %}
+    <div class="carousel-cell">
+      {% include 'atoms/picture.twig' with {
+        'alt': image.caption,
+        'images': {
+          'standard_img': TimberImage(image.url|resize(1600)),
+          'standard_img_retina': TimberImage(image.url|resize(2400)),
+          'tablet_img': (image.url) ? TimberImage(image.url|resize(900, 900)) : TimberImage(image.url|resize(900, 900)),
+          'mobile_img': (image.url) ? TimberImage(image.url|resize(600, 600)) : TimberImage(image.url|resize(600, 600))
+        }
+      } %}
+    </div>
+    {% endfor %}
+  </div>
+</section>

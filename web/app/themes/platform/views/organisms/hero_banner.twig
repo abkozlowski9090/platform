@@ -1,0 +1,46 @@
+{% set event_date_string = "" %}
+{% set seperator = " - " %}
+{% if post.get_field('event_dates')|length > 1 %}
+  {% set seperator = " + " %}
+{% endif %}
+{% for date in post.get_field('event_dates') %}
+  {% set event_date_string = event_date_string ~ date.event_date ~ seperator %}
+{% endfor %}
+{% set event_date_string = event_date_string ~ post.event_end_date|date('d/m/y') %}
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="hero-banner {{ (content.full_height) ? 'hero-banner--full-height' : '' }} {{ (content.gradient_overlay) ? 'hero-banner--gradient-overlay' : '' }} {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="hero-banner__wrapper">
+      {%
+      include 'atoms/picture.twig' with {
+        'class_list': 'cover-bg__img',
+        'alt': content.large.caption,
+        'images': {
+          'standard_img': TimberImage(content.image.large.url|resize(1600, 830)),
+          'standard_img_retina': TimberImage(content.image.large.url|resize(2400, 1245)),
+          'tablet_img': (content.image.medium) ? TimberImage(content.image.medium.url|resize(900, 900)) : TimberImage(content.image.large.url|resize(900, 900)),
+          'mobile_img': (content.image.small) ? TimberImage(content.image.small.url|resize(600, 600)) : TimberImage(content.image.large.url|resize(600, 600))
+        }
+      }
+      %}
+
+      <div class="container">
+        <div class="hero-banner__title">
+          <p class="h1">{{ content.title }}</p>
+        </div>
+    </div>
+
+    {% if content.show_next_event == true %}
+    <div class="hero-banner__event-box">
+      <p class="h5">Next Event </p>
+      {% for event in next_event %}
+      <a href="{{ event.link }}" class="h4"> {{ event.post_title }} - {{ post_info.event_date|date('d/m/Y') }} </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+
+
+
+
+</section>

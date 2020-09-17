@@ -1,0 +1,28 @@
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} data-scroll  class="testimonials-slider colour--white">
+  <div class="container">
+    <div class="testimonials-slider__headings">
+      <p class="h5 text--uppercase text--open-spacing text--bold">Testimonials </p>
+      <p class="h2">What people say about us </p>
+    </div>
+    <div class="row row--reset-pad row--justify-center">
+      <div class="col col--7@lrg">
+        <div class="testimonials-slider__carousel" data-module="testimonialsslider">
+        {% for slide in content.testimonials_slider %}
+        <div class="carousel-cell">
+          <div class="testimonials-slider__content">
+            <p class="h3">  <br/>{{ slide.text_section }}</p>
+            <p class="h4 author">{{ slide.author }}</p>
+            <p class="h5">{{ slide.job_title }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<div class="testimonials-dots"> {% include 'atoms/icon.twig' with { 'icon': 'dots-1' } %} </div>
+
+</section>

@@ -1,0 +1,48 @@
+.bottom-footer {
+  background: $purple;
+  padding: 0px 0px 20px 0px;
+
+  .icon {
+    margin-right: 40px;
+
+    @include media ("<med") {
+      margin-right: 20px;
+    }
+  }
+
+   ul {
+     display: flex;
+     margin-right: auto;
+
+     @include media("<med") {
+       flex-direction: column;
+       margin-bottom: 20px;
+     }
+   }
+
+   li {
+     margin-right: 40px;
+     font-size: $h5-font-size;
+     a {
+       text-decoration: none;
+     }
+
+     @include media("<med") {
+       margin-bottom: 10px;
+       font-size: 14px;
+     }
+   }
+
+   .icon--platform-logo svg {
+     fill: $white;
+   }
+
+   .row {
+     @include media("<med") {
+       flex-direction: column;
+       align-items: baseline;
+     }
+   }
+
+
+}

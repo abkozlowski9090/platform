@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="row">
+    <div class="col col--5-above-landscapeTablet">
+      <h1>{{post.title}}</h1>
+
+    </div>
+    <div class="col col--5-above-landscapeTablet">
+      {{post.content}}
+
+    </div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

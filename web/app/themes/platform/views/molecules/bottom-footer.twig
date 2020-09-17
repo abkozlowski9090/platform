@@ -1,0 +1,29 @@
+<footer class="bottom-footer colour--white">
+  <div class="container">
+    <div class="row  row--align-center row--justify-end row--reset-pad">
+      {% include 'atoms/icon.twig' with { 'icon': 'platform-logo' } %}
+      <ul>
+        <li>&copy; Platform Airport City</li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+      </ul>
+      {% include 'molecules/social-icons.twig' with {
+        'accounts': [{
+          'icon': 'facebook',
+          'link': post.facebook ?: options.facebook
+        }, {
+          'icon': 'twitter',
+          'link': post.twitter ?: options.twitter
+        }, {
+          'icon': 'instagram',
+          'link': post.instagram ?: options.instagram
+        }]
+      }%}
+    </div>
+    <div class="row row--reset-pad row--mt-40">
+        <p class="footer-logos__pt">Site by <a href="http://persona.studio/" class="">Persona</a> | <a href="https://tilecreative.com/" class="">Tile.</a></p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,12 @@
+
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="instagram-block {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container">
+    <div class="row row--reset-pad">
+      <p class="h3 text--bold">Follow Us On Facebook </p>
+      <div class="instagram__feed" data-module="instagram" id="instafetch">
+      </div>
+    </div>
+  </div>
+</section>

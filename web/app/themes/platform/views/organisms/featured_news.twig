@@ -1,0 +1,41 @@
+{% if featured_post|length %}
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="featured-news {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="featured-news__content">
+          <p class="h5 text--uppercase text--open-spacing text--bold">News</p>
+          <p class="h2">{{ featured_post.short_description }} </p>
+        <div class="featured-news__btns">
+          <a href="{{ featured_post.link }}" class="btn btn--square btn--transparent btn--has-icon"> Read More {% include 'atoms/icon.twig' with { 'icon': 'arrow' } %}</a>
+          <a href="/news" class="btn btn--square btn--transparent btn--has-icon"> All News {% include 'atoms/icon.twig' with { 'icon': 'arrow' } %}</a>
+        </div>
+      </div>
+
+
+      <div class="featured-news__image">
+        {% if featured_post.thumbnail %}
+          {%
+            include 'atoms/picture.twig' with {
+            'alt': featured_post.caption,
+            'images': {
+              'standard_img': TimberImage(featured_post.thumbnail.src|resize(800, 1200)),
+              'standard_img_retina': TimberImage(featured_post.thumbnail.src|resize(1200, 1600)),
+              'tablet_img': (image.sizes.medium) ? TimberImage(featured_post.thumbnail.src|resize(800, 1000)) : TimberImage(featured_post.thumbnail.src|resize(800, 1000)),
+              'mobile_img': (image.sizes.small) ? TimberImage(featured_post.thumbnail.src|resize(800, 1000)) : TimberImage(featured_post.thumbnail.src|resize(600, 800))
+              }
+            }
+          %}
+        {% endif %}
+        <div class="dots"> {% include 'atoms/icon.twig' with { 'icon': 'dots-1' } %} </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% endif %}

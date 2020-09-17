@@ -1,0 +1,51 @@
+.archive-news,
+.archive-events {
+  padding: $space-12x 0;
+}
+
+.archive-listing-grid {
+  width: 100%;
+  .grid-sizer {
+    width: 25%;
+  }
+}
+.archive-listing {
+  padding: $gridGutter/2;
+  &__sml {
+    width: 50%;
+    @include media(">med") {
+      width: 25%;
+      padding-bottom: 200px;
+    }
+  }
+  &__lrg {
+    width: 50%;
+  }
+}
+
+.archive-card {
+  text-decoration: none;
+  img {
+    width: 100%;
+    display: block;
+  }
+  
+  &__content {
+    margin-top: 20px;
+  }
+
+  &__image {
+    background: $white;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    transition: transform $speed $easing;
+    transform: scale(1);
+  }
+
+  &:hover {
+    .archive-card__image {
+        transform: scale(1.025);
+    }
+  }
+}

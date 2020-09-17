@@ -1,0 +1,26 @@
+{% if related_posts|length %}
+<section>
+
+  <div class="container">
+    <div class="row">
+      <p class="h3">Related Posts</p>
+    </div>
+
+    <div class="row">
+      <div class="archive-listing-grid" data-module="masonrygrid">
+        <div class="grid-sizer"></div>
+        {% for post_info in related_posts %}
+            <div class="archive-listing archive-listing__sml">
+              {% include 'molecules/archive-card.twig' with {
+                post_info: post_info,
+              } %}
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+  </div>
+
+</section>
+{% endif %}

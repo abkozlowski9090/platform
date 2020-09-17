@@ -1,0 +1,12 @@
+
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="content-section {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container container--small">
+    <div class="row">
+        {{ content.content_section }}
+        <a href="{{ content.button.link.url }}" class="{{content.button.button_style}} btn--white">{{content.button.link.title }} </a>
+      </div>
+    </div>
+  </div>
+</section>

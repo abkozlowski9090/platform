@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% if latest_posts|length %}
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="archive-news {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container">
+
+
+		<p class="h5 text--uppercase text--open-spacing text--bold">Latest News </p>
+
+    <div class="row">
+      <div class="archive-listing-grid" data-module="masonrygrid">
+        <div class="grid-sizer"></div>
+        {% for post_info in posts %}
+            <div class="archive-listing archive-listing__sml">
+              {% include 'molecules/archive-card.twig' with {
+                post_info: post_info,
+              } %}
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+{% endif %}
+
+{% endblock %}

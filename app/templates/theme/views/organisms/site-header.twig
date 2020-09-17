@@ -1,0 +1,24 @@
+{#
+include 'organisms/site-header.twig' with {
+  'title': STRING,
+  'icon': STRING,
+  'class_list': STRING,
+  'has_burger': BOOLEAN,
+  'menu' : STRING
+}
+#}
+<header class="site-header">
+  <div class="container">
+    <div class="row">
+      <a href="/" class="site-header__logo">
+        {% include 'atoms/icon.twig' with { 'icon': 'logo' } %}
+      </a>
+      <div class="site-header__menu">
+        {% include 'molecules/nav.twig' %}
+      </div>
+      {% if has_burger %}
+      <a href="#" class="burger-nav-button site-header__burger"><i></i><i></i><i></i></a>
+      {% endif %}
+    </div>
+  </div>
+</header>

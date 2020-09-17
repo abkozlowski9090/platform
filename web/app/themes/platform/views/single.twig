@@ -1,0 +1,79 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+
+<section class="hero-banner {{ (post.get_field('masthead').full_height) ? 'hero-banner--full-height' : '' }} {{ (post.get_field('masthead').gradient_overlay) ? 'hero-banner--gradient-overlay' : '' }}">
+  <div class="hero-banner__wrapper">
+      {%
+      include 'atoms/picture.twig' with {
+        'class_list': 'cover-bg__img',
+        'alt': post.large.caption,
+        'images': {
+          'standard_img': TimberImage(post.get_field('masthead').image.large.url|resize(1600, 830)),
+          'standard_img_retina': TimberImage(post.get_field('masthead').image.large.url|resize(2400, 1245)),
+          'tablet_img': (post.get_field('masthead').image.medium) ? TimberImage(post.get_field('masthead').image.medium.url|resize(900, 900)) : TimberImage(post.get_field('masthead').image.large.url|resize(900, 900)),
+          'mobile_img': (post.get_field('masthead').image.small) ? TimberImage(post.get_field('masthead').image.small.url|resize(600, 600)) : TimberImage(post.get_field('masthead').image.large.url|resize(600, 600))
+        }
+      }
+      %}
+
+    <div class="container">
+      <div class="hero-banner__title colour--{{ post.get_field('masthead').colour }}">
+        <p class="h1">{{ post.get_field('masthead').title }}</p>
+      </div>
+    </div>
+
+    {% if post.get_field('masthead').show_next_event == true %}
+    <div class="hero-banner__event-box">
+      <p class="h5">Next Event </p>
+      {% for event in next_event %}
+      <a href="{{ event.link }}" class="h4"> {{ event.post_title }} - {{ post_info.event_date|date('d/m/Y') }} </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<article class="single-post single-post--padding">
+	<div class="container">
+		<div class="row row--reset-pad">
+
+			<div class="col col--3@med">
+				<div class="single-post__sidebar">
+					<div class="single-post__share">
+					<p class="h5 text--open-spacing text--bold">SHARE </p>
+					<ul>
+					<li class="h4">
+						<a href="https://twitter.com/home?status=http://localhost:3000/test-post-4/ ">Twitter </a>
+					 </li>
+					 <li class="h4">
+						 <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:3000/test-post-4/">Facebook</a>
+						</li>
+						<li class="h4">
+							<a href="mailto:info@example.com?&subject=&body=http://localhost:3000/test-post-4/ /">Email</a>
+						 </li>
+						 <li class="h4">
+							 <a href="mailto:info@example.com?&subject=&body=http://localhost:3000/test-post-4/ /">Copy Link</a>
+							</li>
+					</ul>
+	      </div>
+				</div>
+			</div>
+
+			<div class="col col--reset-pad col--9@med">
+				<div class="single-post__content">
+					{{ post.content }}
+				</div>
+			</div>
+
+	</div>
+</div>
+</article>
+
+{% include 'organisms/newsletter.twig' %}
+
+{% include 'organisms/latest_news_single.twig' %}
+
+{% endblock %}

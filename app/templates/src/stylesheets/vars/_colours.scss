@@ -1,0 +1,14 @@
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$grey: rgb(227, 227, 227);
+$red: rgb(255, 120, 120);
+
+$textColor: $black;
+$buttonColor: $black;
+
+$colorMap: (
+  'black': $black,
+  'white': $white,
+  'grey': $grey,
+  'red': $red
+) !default;

@@ -1,0 +1,38 @@
+.instagram {
+
+  &__feed {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 80px 0px;
+
+    @include media("<med") {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    article {
+      width: 100%;
+    }
+
+    figure {
+      margin: 0px 20px 0px 0px;
+
+      @include media("<med") {
+        margin: 0px 5px;
+      }
+
+      img {
+        height: 350px;
+        width: 100%;
+        object-fit: cover;
+
+        @include media("<med") {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+}

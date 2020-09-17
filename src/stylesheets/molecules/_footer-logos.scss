@@ -1,0 +1,24 @@
+.footer-logos {
+  &__pt {
+    font-size: $h5-font-size;
+    margin-right: auto;
+    @include media("<med") {
+      margin-top: 80px;
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+  }
+
+  &__ma {
+    font-size: $h5-font-size;
+    margin-left: auto;
+    a {
+      text-decoration: none;
+    }
+    @include media("<med") {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+  }
+
+}

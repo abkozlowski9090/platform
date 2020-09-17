@@ -1,0 +1,54 @@
+/**
+ * Curator
+ * http://10up.com
+ *
+ * Copyright (c) 2014 Aaron Holbrook, Gustave Gerhardt, 10up
+ * Licensed under the GPLv2+ license.
+ */
+
+body.post-type-cur-curator {
+	a.add-new-h2 {
+		display: none;
+	}
+
+	.featured.column-featured {
+		.wp-menu-image.dashicons-star-filled {
+			&:before {
+				color: #F5C24F;
+				font-size: 28px;
+			}
+		}
+	}
+
+	th.manage-column.column-pinned {
+		width: 10%;
+	}
+
+	th.manage-column.column-featured {
+		width: 10%;
+	}
+
+	th.manage-column.column-post_type {
+		width: 15%;
+	}
+}
+
+
+.featurer-sizes {
+	padding-top: 10px;
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	label img {
+		border: 1px solid transparent;
+		margin-right: 5px;
+	}
+
+	input[type="radio"]:checked + img {
+		border-color: #5b9dd9;
+		-webkit-box-shadow: 0 0 2px rgba( 30, 140, 190, 0.8 );
+		box-shadow: 0 0 2px rgba( 30, 140, 190, 0.8 );
+	}
+}

@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% if latest_posts|length %}
+
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="archive-events {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container">
+		<p class="h5 text--uppercase text--open-spacing text--bold">Events </p>
+		<p class="h2">View our upcoming events </p>
+	    <div class="row">
+	      <div class="page-grid__flex-container">
+	        {% for post_info in latest_events %}
+	              <div class="page-grid__item">
+	                {% include 'molecules/news-card.twig' with {
+	                  post_info: post_info,
+	                } %}
+	              </div>
+	          {% endfor %}
+	      </div>
+	    </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% endif %}
+
+{% endblock %}

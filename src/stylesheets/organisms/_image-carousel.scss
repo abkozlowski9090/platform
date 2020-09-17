@@ -1,0 +1,13 @@
+.image-carousel {
+  padding: 0px;
+
+  &__carousel {
+    width: 100%;
+    height: 600px;
+  }
+
+  .carousel-cell {
+    width: 66%;
+    height: 100%;
+  }
+}

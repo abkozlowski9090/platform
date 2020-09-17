@@ -1,0 +1,21 @@
+# <%= conf.get('title') %>
+
+## Setup
+
+### Front-end preprocessing
+
+This build uses Gulp scripts to build the site assets into the `<%= conf.get('webDir') %>/<%= conf.get('contentDir') %>/themes/<%= conf.get('themeDir') %>/_assets` directory.
+
+Stylesheets are compiled from SASS imports in src/scss.
+
+`package.json` and the Gulpfile have been configured so that shell commands `yarn install` and `yarn start` should be enough to get a front-end developer up and running.
+
+Production assets are compiled using the `yarn build` script
+
+### Wordpress
+
+`Composer Install` will install Wordpress Core as well as some standard plugins.
+
+### TECHNOLOGY COLOPHON
+
+HTML5, CSS, JS, Wordpress

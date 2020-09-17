@@ -1,0 +1,35 @@
+
+
+
+<section {{ (id) ? 'id="' ~ id ~ '"' : '' }} class="traders-carousel {{ (content.options.section_options.text_colour) ? ' colour--'~content.options.section_options.text_colour~' ' : '' }}{{ (content.options.section_options.background_colour) ? ' bg--'~content.options.section_options.background_colour~' ' : '' }}{{ (content.options.section_options.class_list) ? ' '~content.options.section_options.class_list : '' }}" {{ (content.options.section_options.custom_css_styles) ? 'style="'~ content.options.section_options.custom_css_styles ~'"' : '' }}">
+  <div class="container">
+    <p class="h3 text--bold"> Meet The Traders </p>
+      <div class="row row--justify-center row--reset-pad">
+        <div class="traders-carousel__carousel" data-module="traderscarousel">
+          {% for trader in content.traders_carousel %}
+
+
+
+          <div class="carousel-cell">
+            <div class="traders-carousel__content">
+              <p class="h3">{{trader.title}}</p>
+              <p class="h4">{{trader.description}}</p>
+            </div>
+              <div class="traders-carousel__picture">
+              {% include 'atoms/picture.twig' with {
+                'images': {
+                  'standard_img': TimberImage(trader.image.large.url|resize(800, 1200)),
+                  'standard_img_retina': TimberImage(trader.image.large.url|resize(1200, 1600)),
+                  'tablet_img': (trader.image.medium.url) ? TimberImage(trader.image.large.url|resize(700, 700)) : TimberImage(trader.image.large.url|resize(700, 700)),
+                  'mobile_img': (trader.image.small.url) ? TimberImage(trader.image.large.url|resize(600, 800)) : TimberImage(trader.image.large.url|resize(600, 800))
+                }
+              } %}
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+      </div>
+    </div>
+</section>

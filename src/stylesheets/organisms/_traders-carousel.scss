@@ -1,0 +1,161 @@
+.traders-carousel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: $space-8x 0px;
+  // display: none;
+  @include media(">lrg") {
+    width: 100vw;
+  }
+
+  @include media("<med") {
+    padding: 40px 0px;
+  }
+
+  .h4 {
+    color: $grey;
+  }
+
+  .h2 {
+    padding: 0 20px 40px;
+
+  }
+
+  &__carousel {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+
+    @include media("<med") {
+      width: 100%;
+      margin-top: 60px;
+    }
+
+
+    .carousel-cell {
+      width: 23%;
+      height: auto;
+      margin-right: 20px;
+      margin-top: 180px;
+      position: relative;
+
+      @include media("<lrg") {
+        width: 50%;
+        margin-top: 0px;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        right: -12px;
+        top: -130px;
+        width: 2px;
+        height: 150%;
+        border-left: 1px solid $grey;
+        z-index: 999;
+
+        @include media("<med") {
+          border-left: 0px;
+        }
+      }
+
+      picture {
+        position: relative;
+        width: 100%;
+        margin-top: auto;
+      }
+
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: -140px;
+    text-align: left;
+    padding: 0 $gridGutter 0 0;
+
+
+    @include media("<lrg") {
+      position: relative;
+      text-align: left;
+      top: auto;
+      margin-bottom: 20px;
+      padding: 0px 0px 20px 0
+    }
+  }
+
+  &__picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  &__carousel-nav-btn {
+  border-radius: 50%;
+  border: 2PX solid $white;
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+  }
+
+  &--disabled {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  &--next {
+    &:before {
+      background: $white;
+      width: 30px;
+      height: 2PX;
+    }
+    &:after {
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+
+      border-left: 10px solid $white;
+    }
+  }
+
+    &--prev {
+      &:after {
+        background: $white;
+        width: 30px;
+        height: 2PX;
+      }
+      &:before {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+
+        border-right:10px solid $white;
+      }
+    }
+  }
+
+  .flickity-prev-next-button {
+    top: 110%;
+  }
+
+}

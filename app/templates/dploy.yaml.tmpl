@@ -1,0 +1,11 @@
+test:
+    scheme: ftp
+    host: <%= conf.get('ftpHost') %>
+    port: 21
+    user: <%= conf.get('ftpUser') %>
+    pass: <%= conf.get('ftpPass') %>
+    check: true
+    path:
+        local: <%= conf.get('webDir') %>
+        remote: <%= conf.get('ftpDir') %>
+    exclude: [".DS-Store","scss","*/.sass-cache",".git",".gitignore","src","composer.json",".composer"]

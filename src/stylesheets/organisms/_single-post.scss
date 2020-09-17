@@ -1,0 +1,118 @@
+.single-post {
+  display: flex;
+  flex-direction: column;
+  background: $white;
+
+  &--padding {
+    padding: 80px 0;
+  }
+
+
+  &__content {
+    height: 100%;
+    padding: 0 60px;
+    margin-bottom: 80px;
+
+    @include media("<med") {
+      border-right: 0;
+      padding: 0;
+    }
+  }
+
+  &__sidebar {
+    position: relative;
+    text-align: left;
+
+
+    @include media("<med") {
+      margin-bottom: 40px;
+    }
+
+    .h5.text--open-spacing.text--bold {
+      @include media("<med") {
+        margin-bottom: 30px;
+      }
+    }
+
+    li {
+      display: flex;
+      flex-flow: wrap;
+      text-align: left;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      color: $grey;
+      @include media("<med") {
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .icon--time {
+      @include media("<med") {
+        top: 75px;
+      }
+    }
+
+    span {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: wrap;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &--event {
+      .event-item {
+        margin-left: 40px;
+        font-size: $h4-font-size;
+      }
+      @include media("<med") {
+        width: 100%;
+        display: flex;
+        div {
+          width: 50%;
+        }
+      }
+      .btn {
+        svg {
+          fill: $black;
+        }
+      }
+    }
+  }
+
+  &__details {
+    .text--bold {
+      margin-bottom: 20px;
+    }
+    li{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    ul {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__share {
+    .text--bold {
+      margin-bottom: 20px;
+    }
+  }
+
+
+  &__booking-cta {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+}
